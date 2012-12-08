@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DEMOlition</title>
+	<link rel='stylesheet' href='demolition.css' media='screen' />
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+	<script type='text/javascript' src='demolition.js'></script>
+</head>
+<body>
+<div id='wrap_all'>
+	<div id='wrap_inside'>
+		<div id='wrap_header'>
+			<div id='header_stats'>
+			{% if stats is defined %}
+				<h3>Stats since Dec 8th, 5PM EST</h3>
+				<label>Costume Files:</label> {{ stats['numCostumes'] }}<br/>
+				<label>Titan Files:</label> {{ stats['numTitans'] }}<br/>
+				<label>Demos Output:</label> {{ stats['numDemosOut'] }}<br/>
+			{% endif %}
+			</div>
+			<a href='/'><h1>DEMOlition</h1></a>
+			<p><span class='coh'>City of Heroes</span> .demorecord builder by @mcuznz</p>
+		</div>
+		<div id='wrap_content'>

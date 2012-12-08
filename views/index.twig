@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+{% block content %}
+
+<h2>Welcome to DEMOlition!</h2>
+
+<p>DEMOlition is a simple .demorecord converter. You can provide either a <span
+class='coh'>City of Heroes</span> <em>.costume</em> file, or a <span
+class='titan'>Titan Network</span> <em>Sentinel+ XML</em> file, and DEMOlition
+will create a small .demorecord file of your Character.</p>
+
+<p>Right now, the options available are <em>very</em> limited - your character
+will be placed in Atlas Park, standing in Ms. Liberty's normal location, waving
+pleasantly. If you're relatively new to demoediting or would just like to bring
+life to one of your characters again, this is a great starting point.  I'd like
+to add more locations and a choice of emotes in the future, time permitting.</p>
+
+<h2>Step 1: Provide a Source File</h2>
+
+{% if error is defined %}
+<p class='error'>{{ error }}</p>
+{% endif %}
+
+<p>Upload either a <span class='coh'>City of Heroes</span> <em>.costume</em>
+file, or a <span class='titan'>Titan Network</span> <em>Sentinel+ XML</em> file
+to get started!  Note that I don't store this file a second longer than needed -
+as soon as it's been parsed, it's deleted!</p>
+
+<form action="#" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" name="submit" value="Upload File"/>
+</form>
+
+{% endblock %}

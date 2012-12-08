@@ -1,0 +1,4 @@
+*.komodoproject
+.komodotools
+src/config.php
+vendor/*

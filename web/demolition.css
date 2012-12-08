@@ -1,0 +1,148 @@
+html {
+	margin: 0; padding: 0;
+	color: #353537;
+	background: #DDE;
+}
+
+body {
+	margin: 0; padding: 0;
+	font-size: 16px;
+	font-family: 'Verdana', sans-serif;
+}
+
+h2, h3 {
+	border-bottom: 2px solid #000;
+}
+
+span.coh, span.titan {
+	font-weight: bold;
+}
+
+div.box {
+	background: #FFF;
+	border-radius: 6px;
+	box-shadow: 5px 5px 10px #353537;
+}
+
+a, a:visited {	color: #C00; }
+a:hover, a:active { color: #F80; }
+
+#wrap_inside {
+	margin: 0 auto;
+	width: 960px;
+}
+
+#wrap_header {
+	background: #248;
+	color: #FF6;
+	padding: 10px;
+}
+
+#wrap_header h1, p { margin-top: 0; }
+
+#wrap_content {
+	padding: 10px;
+}
+
+#wrap_footer {
+	padding: 10px;
+	font-size: 14px;
+	text-align: center;
+	background: #248;
+	color: #FF6;
+}
+
+#wrap_header a, #wrap_header a:visited,
+#wrap_footer a, #wrap_footer a:visited {
+	color: #FFF;
+}
+
+#wrap_header a:hover, #wrap_header a:active,
+#wrap_footer a:hover, #wrap_footer a:active {
+	color: #F80;
+}
+
+label {
+	width: 200px;
+	font-weight: bold;
+	display: inline-block;
+}
+
+#costume_data {
+	display: none;
+}
+
+div.cs_child.selected {
+	background: #FFF;
+}
+
+div.cp {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	margin: 10px 5px;
+	box-shadow: 2px 2px 4px #666;
+	display: inline-block;
+	line-height: 40px;
+}
+div.cp.skin {
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	margin: 5px;
+}
+
+.error {
+	border: 2px dashed red;
+	background: #FF8;
+	font-weight: bold;
+	font-style: italic;
+	padding: 5px;
+}
+.error:before {
+	content: "ERROR: ";
+}
+#advanced_wrapper,
+#step3_wrapper {
+	display: none;
+}
+#show_advanced {
+	color: #248;
+	cursor: pointer;
+}
+.leftside {
+	width: 49%;
+	float: left;
+}
+.rightside {
+	width: 49%;
+	float: right;
+}
+.clear {
+	clear: both;
+}
+input[type="button"],
+input[type="submit"] {
+	padding: 0.5em;
+	font-size: 16px;
+	font-weight: bold;
+	background: #353537;
+	color: #EEE;
+	border-radius: 15px;
+	box-shadow: 2px 2px 4px #666;
+}
+
+#output {
+	width: 100%;
+	height: 300px;
+}
+
+#header_stats {
+	font-size: 13px;
+	float: right;
+	width: 250px;
+}
+#header_stats h3 {
+	margin: 0 0 5px 0;
+	border-bottom: 2px solid #FFF;
+}

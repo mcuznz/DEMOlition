@@ -1,0 +1,95 @@
+{% extends "base.twig" %}
+{% block content %}
+
+<div id='step2_wrapper'>
+	<h2>Step 2: Make Some Choices</h2>
+
+	<div class='leftside'>
+		<label>Character Name:</label> <input type='text' id='charname' value='Generic Hero' /><br/>
+		<p class='subtext'>This isn't auto-populating yet... sorry!</p>
+	</div>
+	<div class='rightside'>
+		<label>Stance:</label><select id='stance'>
+			<option value='READY'>Ready</option>
+			<option value='READY_2HIPS_LOOK'>Ready, Hands on Hips</option>
+			<option value='READY_XARMS_LOOK'>Ready, Cross Arms</option>
+			<option value='FLYREADY'>Hover</option>
+			<option value='TALKIDLE'>Talk, Idle</option>
+		</select>
+	</div>
+	<div class='clear'></div>
+	
+	<div id='costume_data'>
+	{% set i = 0 %}
+	{% for costume in costumes  %}
+		<div id='costume_data_{{ i }}'>{{ costume }}</div>
+		{% set i = i + 1 %}
+	{% endfor %}
+	</div>
+	
+	<h3>Choose a Costume:</h3>
+	<p>The color palette used in each costume is displayed below. They also appear
+	in the order they did in-game, so hopefully finding the right one isn't too
+	difficult.</p>
+	<div id='costume_selectors'>
+		Populating...
+	</div>
+	
+	<div class='leftside'>
+		<h3>Choose a Location:</h3>
+		<select id='location'>
+			<option value='maps/City_Zones/City_01_01/City_01_01.txt||128.5 18.359375 -207||0 0 0'>Atlas Park - Ms. Liberty's Stand</option>
+		</select>
+		<h3>Time of Day:</h3>
+		<select id='timeofday'>
+			<option value='10.00'>Daytime</option>
+			<option value='20.00'>Sunset</option>
+		</select>
+	</div>
+	<div class='rightside'>
+		<h3>Camera Settings:</h3>
+		<label>Placement:</label> <select id='camtype'>
+			<option value='still-flat'>Still - Horizontal</option>
+			<option value='still-down'>Still - Downward Angle</option>
+			<option value='still-up'>Still - Upward Angle</option>
+			<option value='circle-flat'>Circle Character - Horizontal</option>
+			<option value='circle-down'>Circle Character - Downward Angle</option>
+			<option value='circle-up'>Circle Character - Upward Angle</option>
+		</select><br/>
+	</div>	
+	<div class='clear'></div>
+	
+	<h4 id='show_advanced'>Show Advanced Settings</h4>
+	<div id='advanced_wrapper'>
+	<h3>Advanced Settings:</h3>
+	<label>Camera Distance:</label> <input type='text' id='camdist' /><br/>
+	<p class='subtext'>Leave blank for a scale-based default value.</p>
+	
+	<label>Entity ID:</label> <input type='text' id='entityid' /><br/>
+	<p class='subtext'>Only specify this value if you're going to paste the
+	output into an existing .demorecord file and need to match an existing Entity
+	code.</p>
+	</div>
+	
+	<input type='button' id='step2_submit' value='Create .demorecord' />
+</div>
+<div id='step3_wrapper'>
+	<h2>Step 3: All Done!</h2>
+	
+	<p>Your .demorecord file is ready... almost! You'll need to Copy-and-Paste
+	the following text into an empty text document using a program such as
+	Notepad, and save it with a .cohdemo extension.</p>
+
+	<textarea id='output'>
+	</textarea>
+	
+	<h3>What Next?</h3>
+	<input type='button' id='step3_import' value='Import New Character' />
+	<input type='button' id='step3_tweak' value='Tweak this Character' />
+</div>
+
+<script type='text/javascript'>
+	populateSelectors();
+</script>
+
+{% endblock %}
