@@ -6,7 +6,7 @@ require_once '../src/fromTitan.php';
 require_once '../src/config.php';
 
 $app = new Silex\Application();
-$app['debug'] = true;
+$app['debug'] = false;
 
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
@@ -104,7 +104,7 @@ $app->match('/stats', function(Request $request) use ($app) {
     echo '<pre>';
     print_r($stats);
     echo '</pre>';
-    return "<br/>";
+    return "<a href='/stats'>Refresh</a>";
 });
 
 $app->run();
