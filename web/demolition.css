@@ -6,7 +6,7 @@ html {
 
 body {
 	margin: 0; padding: 0;
-	font-size: 16px;
+	font-size: 14px;
 	font-family: 'Verdana', sans-serif;
 }
 
@@ -38,7 +38,7 @@ a:hover, a:active { color: #F80; }
 	padding: 10px;
 }
 
-#wrap_header h1, p { margin-top: 0; }
+#wrap_header h1, p { margin: 0; }
 
 #wrap_content {
 	padding: 10px;
@@ -63,7 +63,7 @@ a:hover, a:active { color: #F80; }
 }
 
 label {
-	width: 200px;
+	width: 140px;
 	font-weight: bold;
 	display: inline-block;
 }
@@ -145,4 +145,15 @@ input[type="submit"] {
 #header_stats h3 {
 	margin: 0 0 5px 0;
 	border-bottom: 2px solid #FFF;
+}
+
+p.note {
+	padding: 5px;
+	margin: 10px;
+	border: 2px dotted blue;
+	background: #FFC;
+	font-size: 80%;
+}
+option.pleasehover {
+	background: #FF6;
 }

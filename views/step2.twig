@@ -13,7 +13,7 @@
 			<option value='READY'>Ready</option>
 			<option value='READY_2HIPS_LOOK'>Ready, Hands on Hips</option>
 			<option value='READY_XARMS_LOOK'>Ready, Cross Arms</option>
-			<option value='FLYREADY'>Hover</option>
+			<option class='pleasehover' value='FLYREADY'>Hover</option>
 			<option value='TALKIDLE'>Talk, Idle</option>
 		</select>
 	</div>
@@ -34,17 +34,24 @@
 	<div id='costume_selectors'>
 		Populating...
 	</div>
-	
+
 	<div class='leftside'>
-		<h3>Choose a Location:</h3>
-		<select id='location'>
+		<h3>Location Settings:</h3>
+		<label>Locale:</label><select id='location'>
 			<option value='maps/City_Zones/City_01_01/City_01_01.txt||128.5 18.359375 -207||0 0 0'>Atlas Park - Ms. Liberty's Stand</option>
-		</select>
-		<h3>Time of Day:</h3>
-		<select id='timeofday'>
+			<option value='maps/City_Zones/Hazard_02_01/Hazard_02_01.txt||-1475.5 -0.453125 5565||0 0 0'>Boomtown - Recon. Officer's spot</option>
+			<option value='maps/City_Zones/City_01_04/City_01_04.txt||367.0, 66.0, -832.0||0 -1.570798 0'>Galaxy City Echo - BAB's spot</option>
+			<option value='maps/City_Zones/V_City_01_01/V_City_01_01.txt||-4107.75, 158.822021, -3123.9||0 1.045710 0'>Mercy Island - Fort Darwin</option>
+			<option value='maps/City_Zones/P_City_00_01/P_City_00_01.txt||-4768.25, 34.3125, -256||0, 1.558524, 0'>Nova Praetorian - Praetor Duncan's Stand</option>
+			<option value='maps/City_Zones/P_City_00_01/P_City_00_01.txt||-4864.25, 32.953125, -256||0, 1.558524, 0'>Nova Praetorian - Courtyard Center</option>
+			<option class='pleasehover' value='maps/City_Zones/City_02_04/City_02_04.txt||-84 22.5625 -1055.5||0 -3.129317 -0'>Pocket D - DJ Zero's spot</option>
+		</select><br/>
+		<label>Time of Day:</label><select id='timeofday'>
 			<option value='10.00'>Daytime</option>
 			<option value='20.00'>Sunset</option>
-		</select>
+		</select></br>
+		<p class='note'><strong>NOTE:</strong> For Locales displayed with a yellow background, the 'Hover' stance is <strong>strongly</strong>
+		encouraged - otherwise you'll be standing in mid-air and look rather foolish.</p>
 	</div>
 	<div class='rightside'>
 		<h3>Camera Settings:</h3>
@@ -56,14 +63,17 @@
 			<option value='circle-down'>Circle Character - Downward Angle</option>
 			<option value='circle-up'>Circle Character - Upward Angle</option>
 		</select><br/>
+		<label>Circle Direction:</label> <select id='spindir'>
+			<option value='1'>Clockwise</option>
+			<option value='-1'>Counter Clockwise</option>
+		</select><br/>
 	</div>	
 	<div class='clear'></div>
 	
 	<h4 id='show_advanced'>Show Advanced Settings</h4>
 	<div id='advanced_wrapper'>
 	<h3>Advanced Settings:</h3>
-	<label>Camera Distance:</label> <input type='text' id='camdist' /><br/>
-	<p class='subtext'>Leave blank for a scale-based default value.</p>
+	<label>Camera Distance:</label> <input type='text' id='camdist' value='14' /><br/>
 	
 	<label>Entity ID:</label> <input type='text' id='entityid' /><br/>
 	<p class='subtext'>Only specify this value if you're going to paste the
@@ -80,8 +90,7 @@
 	the following text into an empty text document using a program such as
 	Notepad, and save it with a .cohdemo extension.</p>
 
-	<textarea id='output'>
-	</textarea>
+	<textarea id='output'></textarea>
 	
 	<h3>What Next?</h3>
 	<input type='button' id='step3_import' value='Import New Character' />

@@ -103,7 +103,7 @@ function createCohDemo() {
 	costume = $('#costume_data_'+which).html();
 	
 	// Entity seems to just be a random number
-	entity = 10;
+	entity = 33;
 	if ($('#entityid').val()) entity = parseInt($('#entityid').val());
 
 	costume = costume.replace(/\!EN\!/g, entity.toString());
@@ -135,6 +135,8 @@ function createCohDemo() {
 	camdist = 14
 	if ($('#camdist').val()) camdist = parseInt($('#camdist').val());
 	
+	spindir = parseInt($('#spindir').val());
+	
 	camtype = $('#camtype').val();
 	campitchoffset = 0;
 	camheightoffset = 0;
@@ -151,9 +153,10 @@ function createCohDemo() {
 		campitchoffset = Math.asin(camheightoffset / hypo);
 	}
 
-	camstartxyz = [playerxyz[0], playerxyz[1] + camheight + camheightoffset, playerxyz[2] + camdist];
+	camstartxyz = [playerxyz[0] + (camdist * Math.sin(playerpyr[1])),
+				   playerxyz[1] + camheight + camheightoffset,
+				   playerxyz[2] + (camdist * Math.cos(playerpyr[1]))];
 	camstartpyr = [playerpyr[0] + campitchoffset, playerpyr[1], playerpyr[2]];
-	
 	
 	// Begin output
 	data = "1   0   Version 2\n0   0   Map " + playerloc[0] + "\n0   0   Time "+ $('#timeofday').val() +"\n";
@@ -179,16 +182,14 @@ function createCohDemo() {
 		// value of 2 makes this take twice as long, etc
 		speedlimiter = 4;
 		
-		step = Math.PI / (180 * speedlimiter);
-		// We begin offset by 90 degrees... aka PI/2
-		initial = Math.PI / 2;
+		step = Math.PI / (180 * speedlimiter) * spindir;
 		
 		for (i = 0; i <= (360 * speedlimiter); i++) {
 			// camdist is radius
-			newx = playerxyz[0] + (camdist * Math.cos(playerpyr[1]+(step*i)+initial));
-			newz = playerxyz[2] + (camdist * Math.sin(playerpyr[1]+(step*i)+initial));
+			newx = playerxyz[0] + (camdist * Math.sin(playerpyr[1]+(step*i)));
+			newz = playerxyz[2] + (camdist * Math.cos(playerpyr[1]+(step*i)));
 			data = data + "33 CAM POS "+newx.toFixed(6)+" "+camstartxyz[1].toFixed(6)+" "+newz.toFixed(6)+
-				"\n0 CAM PYR "+camstartpyr[0].toFixed(6)+" "+(camstartpyr[1] - (step*i)).toFixed(6)+" "+camstartpyr[2].toFixed(6)+"\n";
+				"\n0 CAM PYR "+camstartpyr[0].toFixed(6)+" "+(camstartpyr[1] + (step*i)).toFixed(6)+" "+camstartpyr[2].toFixed(6)+"\n";
 			
 		}
 	}
