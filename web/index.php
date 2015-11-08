@@ -11,7 +11,7 @@ $app['debug'] = false;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+// use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 $app->register(new FormServiceProvider());
 $app->register(new TranslationServiceProvider());
